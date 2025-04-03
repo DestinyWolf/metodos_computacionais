@@ -1,8 +1,8 @@
-x0 = 1.15
-x1 = 1.2
+x0 = 0.3
+x1 = 0.31
 tolerancia = 0.001
 max_iter = 22
-func = @p6
+func = @p3
 
 [raiz, it] = metodo_secante(func, x1, x0, tolerancia, max_iter);
 

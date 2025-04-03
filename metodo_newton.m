@@ -8,9 +8,9 @@ function [r, it] = metodo_newton(func, func_derivada, x0, tol, max_iter)
         ea = abs((r(it+1) - r(it))/r(it+1)) * 100;
 
         if ea <= tol
-            fprintf('iteração: %d\traiz: %.10f\terro: %.10f', it, r(it+1), ea);
+            fprintf('iteração: %d\traiz: %.10f\terro: %.10f\n', it, r(it+1), ea);
             break;
         endif
-        fprintf('iteração: %d\traiz: %.10f\terro: %.10f', it, r(it+1), ea);
+        fprintf('iteração: %d\traiz: %.10f\terro: %.10f\n', it, r(it+1), ea);
     endfor
 end

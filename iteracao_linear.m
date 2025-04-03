@@ -3,7 +3,7 @@ function [it, r] = iteracao_linear(func, func_it, ponto_inicial, limite_erro, li
     it = 1;
     for it = 1:limite_it
         r_ant = r(it);
-        r(it + 1) = func_it(r(it));
+        r(it + 1) = func_it(r(it))
         if r(it + 1) != 0
             ea = abs((r(it + 1) - r_ant)/r(it + 1))*100;
         endif
