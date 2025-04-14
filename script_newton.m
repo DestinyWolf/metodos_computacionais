@@ -1,8 +1,8 @@
-x0 = 1.4
-tolerancia = 0.001
-max_iter = 22
-func = @p6
-derivada = @p6_derivada
+x0 = 0;
+tolerancia = 10e-4;
+max_iter = 22;
+func = @p1;
+derivada = @p1_derivada;
 
 [raiz, it] = metodo_newton(func, derivada, x0, tolerancia, max_iter);
 

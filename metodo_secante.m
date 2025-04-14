@@ -1,9 +1,5 @@
 function [r, it] = metodo_secante(func, x1, x0, limite_erro, max_iter)
 
-
-
-
-
     r(1) = x0;
     r(2) = x1;
     erro(1) = 100;
