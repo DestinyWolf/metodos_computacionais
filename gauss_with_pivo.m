@@ -1,9 +1,24 @@
-function val_var = eliminacao(matriz_a, matriz_b)
+function val_var = gauss_with_pivo(matriz_a, matriz_b)
 
     if det(matriz_a) != 0
         [linhas, colunas] = size(matriz_a);
 
         for k = 1: (linhas - 1)
+            [maior, Ind] = max(abs(matriz_a(k:linhas, k)));
+            ipr = Ind + k - 1; %corrige o indice da linha
+
+            if ipr != 0
+                disp('realizou pivoteamento');
+                Aux = matriz_a([k, ipr],:);
+                matriz_a([k, ipr],:) = matriz_a([ipr, k],:);
+                matriz_a([ipr, k],:) = Aux
+                Aux = matriz_b(k);
+                matriz_b(k) = matriz_b(ipr);
+                matriz_b(ipr) = Aux;
+                matriz_a;
+                matriz_b;
+            endif
+
             for i = (k+1) : linhas
                 fator = matriz_a(i,k) / matriz_a(k,k);
                 for j = k : linhas
@@ -32,4 +47,5 @@ function val_var = eliminacao(matriz_a, matriz_b)
             disp(val_var(i));
         endfor
     endif
+
 endfunction
