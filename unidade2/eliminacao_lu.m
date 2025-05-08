@@ -13,15 +13,13 @@ function val_var = eliminacao_lu(matriz_a, matriz_b)
                 matriz_l(i,j) = fator;
             endfor
 
-            % fprintf('eliminação %d\nmatriz L\n',j);
-            % disp(matriz_l)
-            % fprintf('matriz u\n');
-            % disp(matriz_a)
+            fprintf('eliminação %d\nmatriz L\n',j);
+            disp(matriz_l)
+            fprintf('matriz u\n');
+            disp(matriz_a)
         endfor
 
         matriz_u = matriz_a;
-
-        
 
         vetor_y = gauss_with_pivo(matriz_l, matriz_b);
         val_var = gauss_with_pivo(matriz_u, vetor_y);
