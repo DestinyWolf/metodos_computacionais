@@ -8,10 +8,10 @@ function val_var = gauss_with_pivo(matriz_a, matriz_b)
             ipr = Ind + k - 1; %corrige o indice da linha
 
             if ipr != 0
-                disp('realizou pivoteamento');
+                %disp('realizou pivoteamento');
                 Aux = matriz_a([k, ipr],:);
                 matriz_a([k, ipr],:) = matriz_a([ipr, k],:);
-                matriz_a([ipr, k],:) = Aux
+                matriz_a([ipr, k],:) = Aux;
                 Aux = matriz_b(k);
                 matriz_b(k) = matriz_b(ipr);
                 matriz_b(ipr) = Aux;
