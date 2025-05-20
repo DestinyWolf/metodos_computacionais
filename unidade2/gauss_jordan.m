@@ -1,8 +1,14 @@
-function val_var = gauss_jordan(matriz_a,matriz_b)
+function [val_var, norma_linha, norma_coluna, norma_euclidiana] = gauss_jordan(matriz_a,matriz_b)
 
     if det(matriz_a) != 0
         [linhas, colunas] = size(matriz_a);
 
+        %Calculo da norma
+        [norma_coluna, norma_linha, norma_euclidiana, numero_condicao] = calc_numero_cond_e_norma(matriz_a);
+
+        fprintf("Norma Linha: %f\nNorma Coluna: %f\nNorma Euclidiana: %f\n", norma_linha, norma_coluna, norma_euclidiana);
+        disp("numero condição");
+        disp(numero_condicao);
         for k = 1: (linhas)
             [maior, Ind] = max(abs(matriz_a(k:linhas, k)));
             ipr = Ind + k - 1; %corrige o indice da linha

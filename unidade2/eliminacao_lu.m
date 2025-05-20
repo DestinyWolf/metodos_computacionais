@@ -2,7 +2,14 @@ function val_var = eliminacao_lu(matriz_a, matriz_b)
     [lin, col] = size(matriz_a);
 
 
+
     if lin == col || det(matriz_a) != 0
+
+        [norma_coluna, norma_linha, norma_euclidiana, numero_condicao] = calc_numero_cond_e_norma(matriz_a);
+        fprintf("Norma Linha: %f\nNorma Coluna: %f\nNorma Euclidiana: %f\n", norma_linha, norma_coluna, norma_euclidiana);
+        disp("numero condição");
+        disp(numero_condicao);
+
         matriz_l = tril(ones(lin, col));
         matriz_u = ones(lin, col);
         for j = 1:lin-1
@@ -21,7 +28,7 @@ function val_var = eliminacao_lu(matriz_a, matriz_b)
 
         matriz_u = matriz_a;
 
-        vetor_y = gauss_with_pivo(matriz_l, matriz_b);
-        val_var = gauss_with_pivo(matriz_u, vetor_y);
+        vetor_y = triang_inf(matriz_l, matriz_b)
+        val_var = triang_sup(matriz_u, vetor_y)
     endif
 endfunction
