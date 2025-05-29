@@ -3,7 +3,7 @@ function a = regressao_multipla(x, y)
     [lx, nx] = size(x);
     [ly, ny] = size(y);
 
-    if lx != ny
+    if lx != ly
         fprintf("os vetores devem ter o mesmo tamanho\n");
         return;
     else
@@ -40,30 +40,35 @@ function a = regressao_multipla(x, y)
                         for k=1:lx
                             soma_y = soma_y + y(k);
                         end
+                        matriz_x(i,j) = soma_x;
+                        vetor_y(1,i) = soma_y;
                     else
                         for k=1:lx
                             soma_x = soma_x + x(k, j-1);
                         end
+                        matriz_x(i,j) = soma_x;
                     end
                 else
                     if j == 1
                         for k=1:lx
                             soma_x = soma_x + x(k, i-1);
-                            soma_y = soma_y + y(k);
+                            soma_y = soma_y + (y(k) * x(k, i-1));
                         end
+                        matriz_x(i,j) = soma_x;
+                        vetor_y(1,i) = soma_y;
                     else if j == i
                         for k = 1:lx
                             soma_x = soma_x + (x(k, i-1)^2);
                         end
+                        matriz_x(i,j) = soma_x;
                     else
                         for k = 1:lx
                             soma_x = soma_x + (x(k,i-1) * x(k,j-1));
                         end
+                        matriz_x(i,j) = soma_x;
                     end
                 end
-                matriz_x(i,j) = soma_x;
             end
-            vetor_y(1,i) = soma_y;
         end
 
         disp("matriz");
