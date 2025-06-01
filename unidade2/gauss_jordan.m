@@ -4,11 +4,11 @@ function [val_var, norma_linha, norma_coluna, norma_euclidiana] = gauss_jordan(m
         [linhas, colunas] = size(matriz_a);
 
         %Calculo da norma
-        [norma_coluna, norma_linha, norma_euclidiana, numero_condicao] = calc_numero_cond_e_norma(matriz_a);
+        %[norma_coluna, norma_linha, norma_euclidiana, numero_condicao] = calc_numero_cond_e_norma(matriz_a);
 
-        fprintf("Norma Linha: %f\nNorma Coluna: %f\nNorma Euclidiana: %f\n", norma_linha, norma_coluna, norma_euclidiana);
-        disp("numero condição");
-        disp(numero_condicao);
+        %fprintf("Norma Linha: %f\nNorma Coluna: %f\nNorma Euclidiana: %f\n", norma_linha, norma_coluna, norma_euclidiana);
+        %disp("numero condição");
+        %disp(numero_condicao);
         for k = 1: (linhas)
             [maior, Ind] = max(abs(matriz_a(k:linhas, k)));
             ipr = Ind + k - 1; %corrige o indice da linha
@@ -17,7 +17,7 @@ function [val_var, norma_linha, norma_coluna, norma_euclidiana] = gauss_jordan(m
                 %disp('realizou pivoteamento');
                 Aux = matriz_a([k, ipr],:);
                 matriz_a([k, ipr],:) = matriz_a([ipr, k],:);
-                matriz_a([ipr, k],:) = Aux
+                matriz_a([ipr, k],:) = Aux;
                 Aux = matriz_b(k);
                 matriz_b(k) = matriz_b(ipr);
                 matriz_b(ipr) = Aux;
@@ -48,16 +48,16 @@ function [val_var, norma_linha, norma_coluna, norma_euclidiana] = gauss_jordan(m
                     endif
                 endfor
             endif
-            fprintf("eliminação %d\n", k);
-            fprintf("matriz A:\n");
-            disp(matriz_a);
-            fprintf("matriz B:\n");
-            disp(matriz_b);
+            %fprintf("eliminação %d\n", k);
+            %fprintf("matriz A:\n");
+            %disp(matriz_a);
+            %fprintf("matriz B:\n");
+            %disp(matriz_b);
         endfor
 
         val_var(linhas) = matriz_b(linhas)/matriz_a(linhas,colunas);
-        fprintf("valor x%d = ", linhas);
-        disp(val_var(linhas));
+        %fprintf("valor x%d = ", linhas);
+        %disp(val_var(linhas));
 
         for i = (linhas -1):-1:1
             soma = matriz_b(i);
@@ -65,8 +65,8 @@ function [val_var, norma_linha, norma_coluna, norma_euclidiana] = gauss_jordan(m
                 soma = soma - (matriz_a(i,j) * val_var(j));
             endfor
             val_var(i) = soma / matriz_a(i,i);
-            fprintf("valor x%d = ", i);
-            disp(val_var(i));
+            %fprintf("valor x%d = ", i);
+            %disp(val_var(i));
         endfor
     endif
 
