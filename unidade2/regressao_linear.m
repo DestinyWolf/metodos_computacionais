@@ -39,6 +39,6 @@ function a = regressao_linear(x, y)
         syx = sqrt((sr/(nx-2)));
         r_2 = (st-sr)/st;
 
-        fprintf("St: %f\tSr: %f\tSy: %f\tSy/x: %f\tr²: %f", st, sr, sy, syx, r_2);
+        fprintf("St: %f\tSr: %f\tSy: %f\tSy/x: %f\tr²: %f\n", st, sr, sy, syx, r_2);
     end
 end

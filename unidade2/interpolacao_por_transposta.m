@@ -1,4 +1,4 @@
-function [y_interpolado, coeficientes] = interpolacao_por_transposta(x, x_desejado, y)
+function [y_interpolado, coeficientes] = interpolacao_por_transposta(x, x_desejado, y, legenda1, legenda2, label1, label2)
 
     [_, nx] = size(x);
     [_, ny] = size(y);
@@ -50,6 +50,8 @@ function [y_interpolado, coeficientes] = interpolacao_por_transposta(x, x_deseja
         end
 
         plot(xx, yy, x_desejado, y_interpolado, 'ro');
-        h = legend("show");
+        h = legend(legenda1, legenda2);
+        xlabel(label1);
+        ylabel(label2);
     end
 end
